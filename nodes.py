@@ -77,16 +77,7 @@ for name, _ in synchformer.named_parameters():
 download_path = folder_paths.get_folder_paths("mmaudio")[0]
 
 nvidia_bigvgan_vocoder_path = os.path.join(download_path, "nvidia", "bigvgan_v2_44khz_128band_512x")
-if not os.path.exists(nvidia_bigvgan_vocoder_path):
-    snapshot_download(
-        repo_id="nvidia/bigvgan_v2_44khz_128band_512x",
-        ignore_patterns=["*3m*",],
-        local_dir=nvidia_bigvgan_vocoder_path,
-        local_dir_use_symlinks=False,
-    )
-
 bigvgan_vocoder = BigVGANv2.from_pretrained(nvidia_bigvgan_vocoder_path).eval().to(device=DEVICE, dtype=DTYPE)
-
 
 vae_path = folder_paths.get_full_path_or_raise("mmaudio", 'mmaudio_vae_44k_fp16.safetensors')
 vae_sd = load_torch_file(vae_path, device=DEVICE)
