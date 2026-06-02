@@ -31,7 +31,7 @@ DTYPE = torch.bfloat16
 
 RNG = torch.Generator(device=DEVICE)
 RNG.manual_seed(random.randint(0, 2**64))
-FM = FlowMatching(min_sigma=0, inference_mode='euler', num_steps=25)
+FM = FlowMatching(min_sigma=0, inference_mode='euler', num_steps=20)
 EMPTY_ENCODED = ''
 
 mmaudio_model_path = folder_paths.get_full_path_or_raise("mmaudio", 'mmaudio_large_44k_v2_fp16.safetensors')
