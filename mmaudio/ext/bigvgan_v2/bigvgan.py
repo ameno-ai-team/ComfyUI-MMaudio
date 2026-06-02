@@ -430,7 +430,7 @@ class BigVGAN(
                 **hf_hub_kwargs,
             )
 
-        checkpoint_dict = torch.load(model_file, map_location=map_location, weights_only=True)
+        checkpoint_dict = torch.load(model_file, map_location=map_location, weights_only=False)
 
         try:
             model.load_state_dict(checkpoint_dict["generator"])
