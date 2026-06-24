@@ -95,9 +95,6 @@ _SYNC_TRANSFORM = v2.Compose([
 ])
 
 def load_video_comfy(images, duration_sec: float) -> VideoInfo:
-    if images.dim() == 3:
-        images = images.unsqueeze(0)
-        
     num_frames = len(images)
     
     output_indices = [[], []]
